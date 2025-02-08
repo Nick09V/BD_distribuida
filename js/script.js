@@ -241,15 +241,15 @@ function eliminarRegistro() {
         return;
     }
 
-    let url = `php/eliminar/eliminar_${tabla}.php`;
+    let url = `../php/eliminar/eliminar_${tabla}.php`;
     let bodyData = "";
 
     if (tabla === "cliente") {
-        bodyData = `id_cliente=${id}`;
+        bodyData = `id_cliente=${id}&varUbicacion=${varUbicacion}`;
     } else if (tabla === "empleado") {
-        bodyData = `id_empleado=${id}`;
+        bodyData = `id_empleado=${id}&varUbicacion=${varUbicacion}`;
     } else if (tabla === "pedido") {
-        bodyData = `id_pedido=${id}`;
+        bodyData = `id_pedido=${id}&varUbicacion=${varUbicacion}`;
     } else if (tabla === "producto") {
         bodyData = `id_producto=${id}`;
     } else if (tabla === "inventario") {

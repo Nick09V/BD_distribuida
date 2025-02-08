@@ -1,11 +1,18 @@
 <?php
 header('Content-Type: application/json');
 include '../conexion.php';
-
+$ubicacion = trim($_POST['varUbicacion']);
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $id_cliente = intval($_POST['id_cliente']);
 
-    $sql = "DELETE FROM cliente_norte WHERE id_cliente = :id_cliente";
+    if ($ubicacion == "norte") {
+        $sql = "DELETE FROM cliente_norte WHERE id_cliente = :id_cliente";
+    } else {
+        $sql = "DELETE FROM cliente_sur WHERE id_cliente = :id_cliente";
+    }
+
+
+    
     $stmt = oci_parse($conn, $sql);
     oci_bind_by_name($stmt, ":id_cliente", $id_cliente);
 
