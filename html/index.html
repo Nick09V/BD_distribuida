@@ -3,19 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login de Empleado</title>
+    <title>Seleccionar Ubicación</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/script.js"></script>
 </head>
 <body>
-    <div class="login-container">
-        <h2>Iniciar Sesión</h2>
-        <div style="display: flex; gap: 40px;">
-            <button id="buttonNorte">botonNorte</button>
-            <button id="buttonSur">botonSur</button>
-        </div>
-        <p id="errorMsg" class="error-message"></p>
-    </div>
+    <h2>Selecciona tu ubicación</h2>
+    <button onclick="seleccionarUbicacion('norte')">Ingresar como Norte</button>
+    <button onclick="seleccionarUbicacion('sur')">Ingresar como Sur</button>
 
-    <script src="../js/script.js"></script>
+    
 </body>
 </html>

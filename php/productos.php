@@ -2,7 +2,7 @@
 session_start();
 include 'conexion.php';
 
-$sql = "SELECT id_producto, nombreproducto, precio FROM Producto";
+$sql = "SELECT id_producto, nombre_producto, precio FROM Producto";
 $stmt = oci_parse($conn, $sql);
 oci_execute($stmt);
 

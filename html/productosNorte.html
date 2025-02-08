@@ -3,26 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Productos</title>
+    <title>Panel Norte</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/script.js"></script>
 </head>
 <body>
-    <h2>Lista de Productos</h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>ID Producto</th>
-                <th>Nombre</th>
-                <th>Precio</th>
-            </tr>
-        </thead>
-        <tbody id="productosTabla">
-            <!-- Aquí se cargarán los productos dinámicamente -->
-        </tbody>
-    </table>
+    <h2>Panel de Control - Norte</h2>
+    <button onclick="cargarDatos('productosNorte')">Ver Productos</button>
+    <button onclick="cargarDatos('empleados')">Ver Empleados</button>
+    <button onclick="cargarDatos('clientes')">Ver Clientes</button>
+    <button onclick="cargarDatos('pedidos')">Ver Pedidos</button>
+    <button onclick="cargarDatos('inventario')">Ver Inventario</button>
+    <button onclick="cargarDatos('sucursal')">Ver Sucursal</button>
     
-    <button onclick="cargarProductos()">Recargar Productos</button>
+    <div id="tablaResultados"></div>
 
-    <script src="../js/script.js"></script>
+
 </body>
 </html>

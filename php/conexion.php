@@ -9,6 +9,6 @@ if (!$conn) {
     $error = oci_error();
     die("Conexión fallida: " . $error['message']);
 }else{
-    echo "Conexión exitosa";
+    //echo "Conexión exitosa";
 }
 ?>

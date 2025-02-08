@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertar Datos</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/script.js"></script>
+</head>
+<body>
+    <h2>Insertar Datos</h2>
+    
+    <label for="tabla">Selecciona la tabla:</label>
+    <select id="tabla" onchange="mostrarFormulario()">
+        <option value="">-- Selecciona --</option>
+        <option value="cliente">Cliente</option>
+        <option value="empleado">Empleado</option>
+        <option value="pedido">Pedido</option>
+        <option value="producto">Producto</option>
+        <option value="inventario">Inventario</option>
+        <option value="sucursal">Sucursal</option>
+    </select>
+
+    <div id="formularios">
+        <!-- Formulario de Cliente -->
+        <form id="form-cliente" class="formulario" style="display:none;">
+            <input type="number" id="id_cliente" placeholder="ID Cliente" required>
+            <input type="number" id="id_sucursal_cliente" placeholder="ID Sucursal" required>
+            <input type="text" id="nombre_cli" placeholder="Nombre" required>
+            <input type="text" id="apellido_cli" placeholder="Apellido" required>
+            <input type="text" id="cedula" placeholder="Cédula" required>
+            <input type="email" id="correo" placeholder="Correo" required>
+            <button type="button" onclick="insertarDatos('cliente')">Insertar Cliente</button>
+        </form>
+
+        <!-- Formulario de Empleado -->
+        <form id="form-empleado" class="formulario" style="display:none;">
+            <input type="number" id="id_empleado" placeholder="ID Empleado" required>
+            <input type="number" id="id_sucursal_empleado" placeholder="ID Sucursal" required>
+            <input type="text" id="nombre" placeholder="Nombre" required>
+            <input type="text" id="direccion" placeholder="Dirección" required>
+            <input type="text" id="telefono" placeholder="Teléfono" required>
+            <button type="button" onclick="insertarDatos('empleado')">Insertar Empleado</button>
+        </form>
+
+        <!-- Formulario de Pedido -->
+        <form id="form-pedido" class="formulario" style="display:none;">
+            <input type="number" id="id_pedido" placeholder="ID Pedido" required>
+            <input type="number" id="id_sucursal_pedido" placeholder="ID Sucursal" required>
+            <input type="number" id="id_cliente_pedido" placeholder="ID Cliente" required>
+            <input type="number" id="id_empleado_pedido" placeholder="ID Empleado" required>
+            <input type="number" id="id_producto_pedido" placeholder="ID Producto" required>
+            <input type="number" id="num_pedido" placeholder="Número de Pedido" required>
+            <input type="date" id="fecha_pedido" required>
+            <input type="number" id="cantidad" placeholder="Cantidad" required>
+            <button type="button" onclick="insertarDatos('pedido')">Insertar Pedido</button>
+        </form>
+
+        <!-- Formulario de Producto -->
+        <form id="form-producto" class="formulario" style="display:none;">
+            <input type="number" id="id_producto" placeholder="ID Producto" required>
+            <input type="text" id="nombre_producto" placeholder="Nombre del Producto" required>
+            <input type="number" step="0.01" id="precio" placeholder="Precio" required>
+            <button type="button" onclick="insertarDatos('producto')">Insertar Producto</button>
+        </form>
+
+        <!-- Formulario de Inventario -->
+        <form id="form-inventario" class="formulario" style="display:none;">
+            <input type="number" id="id_inventario" placeholder="ID Inventario" required>
+            <input type="number" id="id_producto_inventario" placeholder="ID Producto" required>
+            <input type="number" id="id_sucursal_inventario" placeholder="ID Sucursal" required>
+            <input type="number" id="cantidad_inventario" placeholder="Cantidad" required>
+            <button type="button" onclick="insertarDatos('inventario')">Insertar Inventario</button>
+        </form>
+
+        <!-- Formulario de Sucursal -->
+        <form id="form-sucursal" class="formulario" style="display:none;">
+            <input type="number" id="id_sucursal" placeholder="ID Sucursal" required>
+            <input type="text" id="direccion_sucursal" placeholder="Dirección" required>
+            <input type="text" id="telefono_sucursal" placeholder="Teléfono" required>
+            <button type="button" onclick="insertarDatos('sucursal')">Insertar Sucursal</button>
+        </form>
+    </div>
+
+    <p id="mensaje" style="font-weight: bold; font-size: 16px; color: blue;"></p>
+
+
+</body>
+</html>
