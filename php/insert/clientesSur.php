@@ -1,10 +1,7 @@
 <?php
-
 header('Content-Type: application/json');
 include '../conexion.php'; // Conexión a Oracle
 
-
-    $ubicacion = trim($_POST['varUbicacion']);
     $id_cliente = intval($_POST['id_cliente']);
     $id_sucursal = intval($_POST['id_sucursal']);
     $nombre_cli = trim($_POST['nombre_cli']);
@@ -12,13 +9,8 @@ include '../conexion.php'; // Conexión a Oracle
     $cedula = trim($_POST['cedula']);
     $correo = trim($_POST['correo']);
 
-    if ($ubicacion == "norte") {
-        $sql = "INSERT INTO cliente_norte (id_cliente, id_sucursal, nombre_cli, apellido_cli, cedula, correo) 
+    $sql = "INSERT INTO cliente_sur (id_cliente, id_sucursal, nombre_cli, apellido_cli, cedula, correo) 
             VALUES ($id_cliente, $id_sucursal, '$nombre_cli', '$apellido_cli', '$cedula', '$correo')";
-    } else {
-        $sql = "INSERT INTO cliente_sur (id_cliente, id_sucursal, nombre_cli, apellido_cli, cedula, correo) 
-            VALUES ($id_cliente, $id_sucursal, '$nombre_cli', '$apellido_cli', '$cedula', '$correo')";
-    }
 
 $stid = oci_parse($conn, $sql);
 
@@ -34,7 +26,5 @@ if (oci_execute($stid, OCI_COMMIT_ON_SUCCESS)) {
 oci_free_statement($stid);
 oci_close($conn);
 
-
-  
 
 ?>

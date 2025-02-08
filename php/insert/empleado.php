@@ -8,9 +8,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $nombre = trim($_POST['nombre']);
     $direccion = trim($_POST['direccion']);
     $telefono = trim($_POST['telefono']);
+    $ubicacion = trim($_POST['varUbicacion']);
 
-    $sql = "INSERT INTO empleado_norte (id_empleado, id_sucursal, nombre, direccion, telefono) 
+
+    if($ubicacion == "norte"){
+        $sql = "INSERT INTO empleado_norte (id_empleado, id_sucursal, nombre, direccion, telefono) 
             VALUES (:id_empleado, :id_sucursal, :nombre, :direccion, :telefono)";
+
+    }else{
+        $sql = "INSERT INTO empleado_sur (id_empleado, id_sucursal, nombre, direccion, telefono) 
+            VALUES (:id_empleado, :id_sucursal, :nombre, :direccion, :telefono)";
+
+    }
+
 
     $stmt = oci_parse($conn, $sql);
     oci_bind_by_name($stmt, ":id_empleado", $id_empleado);

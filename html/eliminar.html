@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Registros</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/script.js"></script>
+</head>
+<body>
+
+    <h2>Eliminar Registro</h2>
+
+    <label for="id_input">Ingrese ID:</label>
+    <input type="number" id="id_input" placeholder="ID del registro">
+    
+    <label for="tabla_select">Seleccione la tabla:</label>
+    <select id="tabla_select">
+        <option value="cliente">Cliente</option>
+        <option value="empleado">Empleado</option>
+        <option value="pedido">Pedido</option>
+        <option value="producto">Producto</option>
+        <option value="inventario">Inventario</option>
+        <option value="sucursal">Sucursal</option>
+    </select>
+
+    <button onclick="eliminarRegistro()">Eliminar</button>
+
+    <p id="mensaje"></p>
+
+</body>
+</html>

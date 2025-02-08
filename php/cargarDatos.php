@@ -1,6 +1,6 @@
 <?php
 session_start();
-$ubicacion = $_SESSION['ubicacion'];
+
 include 'conexion.php';
 
 // Activar reporte de errores (para depuración)

@@ -12,8 +12,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $fecha_pedido = $_POST['fecha_pedido'];
     $cantidad = floatval($_POST['cantidad']);
 
-    $sql = "INSERT INTO pedido_norte (id_pedido, id_sucursal, id_cliente, id_empleado, id_producto, num_pedido, fecha_pedido, cantidad) 
+    $ubicacion = trim($_POST['varUbicacion']);
+    
+
+    if ($ubicacion == "norte") {
+        $sql = "INSERT INTO pedido_norte (id_pedido, id_sucursal, id_cliente, id_empleado, id_producto, num_pedido, fecha_pedido, cantidad) 
             VALUES (:id_pedido, :id_sucursal, :id_cliente, :id_empleado, :id_producto, :num_pedido, TO_DATE(:fecha_pedido, 'YYYY-MM-DD'), :cantidad)";
+    }else{
+        $sql = "INSERT INTO pedido_sur (id_pedido, id_sucursal, id_cliente, id_empleado, id_producto, num_pedido, fecha_pedido, cantidad) 
+            VALUES (:id_pedido, :id_sucursal, :id_cliente, :id_empleado, :id_producto, :num_pedido, TO_DATE(:fecha_pedido, 'YYYY-MM-DD'), :cantidad)";
+    }
 
     $stmt = oci_parse($conn, $sql);
     oci_bind_by_name($stmt, ":id_pedido", $id_pedido);
