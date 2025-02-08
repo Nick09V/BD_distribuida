@@ -51,6 +51,9 @@ if ($ubicacion == "norte") {
         case "inventario":
             $sql = "SELECT * FROM Inventario";
             break;
+        case 'auditoria':
+            $sql = "SELECT * FROM auditoria_master";
+            break;
         default:
             echo json_encode(["error" => "Tabla no permitida para la ubicación norte"]);
             exit();
@@ -59,7 +62,7 @@ if ($ubicacion == "norte") {
 } elseif ($ubicacion == "sur") {
     switch ($tabla) {
         case "productossur":
-            $sql = "SELECT * FROM producto"; // Restricción
+            $sql = "SELECT * FROM vwproducto"; // Restricción
             break;
         case "empleados":
             $sql = "SELECT * FROM Empleado_sur";
@@ -67,14 +70,17 @@ if ($ubicacion == "norte") {
         case "clientes":
             $sql = "SELECT * FROM Cliente_sur";
             break;
-        case "pedidos":
+        case "pedido":
             $sql = "SELECT * FROM pedido_sur";
             break;
         case "sucursal":
-            $sql = "SELECT * FROM sucursal";
+            $sql = "SELECT * FROM vwsucursal";
             break;
         case "inventario":
-            $sql = "SELECT * FROM Inventario";
+            $sql = "SELECT * FROM vwInventario";
+            break;
+        case 'auditoria':
+            $sql = "SELECT * FROM auditoria_remoto";
             break;
         default:
             echo json_encode(["error" => "Tabla no permitida para la ubicación sur"]);
