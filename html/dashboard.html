@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <h2>Crear un Pedido</h2>
+    <form id="pedidoForm">
+        <input type="text" id="numPedido" placeholder="Número de Pedido" required>
+        <input type="date" id="fechaPedido" required>
+        <input type="number" id="cantidad" placeholder="Cantidad" required>
+        <input type="text" id="productoId" placeholder="ID Producto" required>
+        <button type="submit">Registrar Pedido</button>
+    </form>
+    <p id="pedidoMsg"></p>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
